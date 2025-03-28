@@ -4,7 +4,10 @@ import { cors } from 'hono/cors';
 import { handle } from 'hono/vercel';
 export const runtime = 'edge';
 const app = new Hono().basePath('/api');
-app.use('/api/*', cors());
+app.use('/api/*', cors({
+    origin : "*",
+    allowMethods: ['GET'],
+}));
 app.route("/v1", mainRoute);
 const handler = handle(app);
 export const GET = handler;
