@@ -1,0 +1,10 @@
+import { Hono } from 'hono';
+import { scrapperController } from '../controller/scrapperController.js';
+const route = new Hono();
+route.get('/anime/list', scrapperController.latestRelease);
+route.get('/anime/detail/:path', scrapperController.detailAnime);
+route.get('/anime/search', scrapperController.searchAnime);
+route.get('/anime/watch', scrapperController.watchAnime);
+route.get('/anime/latest/episode', scrapperController.getAnimeAll);
+route.get('/anime/get/rating/:path', scrapperController.getRating);
+export default route;
