@@ -36,7 +36,7 @@ class AnimasuHelper {
         const image = $('.attachment-post-thumbnail').attr('src');
         const episodes = [];
         episodeList.each((index, element) => {
-            const episode = $(element).find('.lchx').text().split('Episode')[1].trim();
+            const episode = $(element).find('.lchx').text().split('Episode')[1]?.trim() ? $(element).find('.lchx').text().split('Episode')[1]?.trim() : "1" ;
             const pathEpisode = $(element).find('a').attr('href')?.split('v9.animasu.cc')[1];
             episodes.push({
                 episode,
